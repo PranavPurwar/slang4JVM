@@ -1,10 +1,10 @@
-package com.slang.call_slang;
+package com.slang.main;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import com.slang.main.Slang;
-
+//TODO Separate to different project later
 public class Main {
 	static String readFile(File file) {
 		String content = null;
