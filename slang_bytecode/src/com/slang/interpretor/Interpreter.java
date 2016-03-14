@@ -29,7 +29,7 @@ import com.slang.ast.statements.WhileStatement;
 import com.slang.contexts.Context;
 import com.slang.contexts.RuntimeContext;
 import com.slang.contexts.Symbol;
-import com.slang.frontEnd.RDParser;
+import com.slang.front_end.RDParser;
 
 public class Interpreter implements Visitor {
 	private RDParser parser;

@@ -2,8 +2,8 @@ package com.slang.main;
 
 import com.slang.ast.Module;
 import com.slang.compiler.Compiler;
-import com.slang.frontEnd.RDParser;
-import com.slang.frontEnd.SemanticAnalyser;
+import com.slang.front_end.RDParser;
+import com.slang.front_end.SemanticAnalyser;
 import com.slang.interpretor.Interpreter;
 
 public class Slang {
