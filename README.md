@@ -22,7 +22,7 @@ SLANG scripts are available in "scripts" subfolder of CallSlang directory
 1. Make sure JDK and ANT are installed is available in the path. 
 2. Clone the project.
 3. Get the BCEL JAR from https://commons.apache.org/proper/commons-bcel/download_bcel.cgi and keep it in the roor folder.
-4. Just run ANT
+4. Just run 'ant' command.
 ~~~
 
 ## EMBEDDING SLANG ##
