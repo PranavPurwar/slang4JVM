@@ -1,4 +1,4 @@
-package com.slang.front_end;
+package com.slang.frontend;
 
 public enum Token {
 	ILLEGAL_TOKEN, // Not a token

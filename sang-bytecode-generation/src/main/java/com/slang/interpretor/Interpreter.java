@@ -1,4 +1,4 @@
-package com.slang.interpretor;
+	package com.slang.interpretor;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,7 @@ import com.slang.ast.statements.WhileStatement;
 import com.slang.contexts.Context;
 import com.slang.contexts.RuntimeContext;
 import com.slang.contexts.Symbol;
-import com.slang.front_end.RDParser;
+import com.slang.frontend.RDParser;
 
 public class Interpreter implements Visitor {
 	private RDParser parser;

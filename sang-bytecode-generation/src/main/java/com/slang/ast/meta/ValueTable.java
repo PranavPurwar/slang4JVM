@@ -1,6 +1,6 @@
 package com.slang.ast.meta;
 
-import com.slang.front_end.Token;
+import com.slang.frontend.Token;
 
 // Value table used for keyword defining
 public class ValueTable {

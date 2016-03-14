@@ -1,4 +1,4 @@
-package com.slang.front_end;
+package com.slang.frontend;
 
 import java.util.ArrayList;
 
