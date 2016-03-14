@@ -21,7 +21,7 @@ SLANG scripts are available in "scripts" subfolder of CallSlang directory
 ~~~
 *Make sure JDK and ANT are installed is available in the path. 
 *Clone the project.
-*Get the BCEL JAR from [here](https://commons.apache.org/proper/commons-bcel/download_bcel.cgi) and keep it in the roor folder.
+*Get the BCEL JAR from https://commons.apache.org/proper/commons-bcel/download_bcel.cgi and keep it in the roor folder.
 *Just run ANT
 ~~~
 
@@ -29,13 +29,11 @@ SLANG scripts are available in "scripts" subfolder of CallSlang directory
 ~~~
 *Build Slang by running the build file present in the folder ‘slang_bytecode’ (Remember to keep BCEL Jar in lib folder of ‘slang_bytecode). 
 *One can call slang in their program by creating an object of ‘com.slang.main.Slang’ class. 
-~~~
 *Constructor has got following signature.
 `public Slang(String name, String code) throws Exception`
-	name: Name of the module, code: Source code .
-And it has got two methods:
-*`public void interpret() throws Exception`
-			Interpretes the passed slang program.
-*`public void compile() throws Exception`
-			Generates the Java class.
-~~~
+	name: Name for slang program, code: Source code.
+*And it has got two methods:
+`public void interpret() throws Exception`
+Interpretes the passed slang program.
+`public void compile() throws Exception`
+Generates the Java class.
