@@ -26,6 +26,6 @@ SLANG scripts are available in "scripts" subfolder of CallSlang directory
 ~~~
 
 ## EMBEDDING SLANG ##
-Build Slang by running the build file present in the folder ‘slang_bytecode’ (Remember to keep BCEL Jar in lib folder of ‘slang_bytecode). Then one can call slang in their program by creating an object of ‘com.slang.main.Slang’ class. Constructor of Slang has got following signature, `public Slang(String name, String code) throws Exception` (name: Name for slang program, code: Source code). And it has got two methods.
+Build Slang by running the build file present in the folder ‘slang_bytecode’ (Remember to keep BCEL JAR in lib folder of ‘slang_bytecode). Then one can call slang in their program by creating an object of ‘com.slang.main.Slang’ class. Constructor of Slang has got following signature, `public Slang(String name, String code) throws Exception` (name: Name for slang program, code: Source code). And it has got two methods.
 1. `public void interpret() throws Exception`: Interpretes the passed slang program.
 2. `public void compile() throws Exception:`Generates the Java class.
