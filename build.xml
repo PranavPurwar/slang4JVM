@@ -1,9 +1,9 @@
 <project name="slang" basedir="." default="main">
 	<property name="call_slang.dir" value="./call_slang" />
-	<property name="slang.dir" value="./slang_bytecode" />
-	<property name="slang_lib.dir" value="./slang_bytecode/lib" />
+	<property name="slang.dir" value="./slang_jvm" />
+	<property name="slang_lib.dir" value="./slang_jvm/lib" />
 	<property name="des.dir" value="./call_slang/lib" />
-	<property name="src.dir" value="./slang_bytecode/dist" />
+	<property name="src.dir" value="./slang_jvm/dist" />
 
 	<target name="update_lib_slang">
 		<delete dir="${slang_lib.dir}" />
@@ -13,7 +13,7 @@
 
 	<target name="slang" depends="update_lib_slang">
 		<subant target="main">
-			<fileset dir="./slang_bytecode" includes="build.xml" />
+			<fileset dir="${slang.dir}" includes="build.xml" />
 		</subant>
 	</target>
 
@@ -28,7 +28,7 @@
 
 	<target name="call_slang" depends="slang, update_lib_call_slang">
 		<subant target="main">
-			<fileset dir="./call_slang" includes="build.xml" />
+			<fileset dir="${call_slang.dir}" includes="build.xml" />
 		</subant>
 	</target>
 

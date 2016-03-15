@@ -3,7 +3,7 @@ package com.slang.ast.expression;
 import com.slang.ast.Visitor;
 import com.slang.contexts.Context;
 import com.slang.contexts.Symbol;
-import com.slang.front_end.Token;
+import com.slang.frontend.Token;
 
 // Node representing a logical expression
 public class LogicalExpression extends Expression {

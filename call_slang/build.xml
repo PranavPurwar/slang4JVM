@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="call_slang" default="Main" basedir=".">
+<project name="call_slang" default="main" basedir=".">
 	<property name="src.dir" location="src" />
 	<property name="lib.dir" location="lib" />
 	<property name="build.dir" location="bin" />
