@@ -1,11 +1,11 @@
 package com.slang.contexts;
 
-import com.slang.ast.meta.Type;
+import com.slang.ast.meta.DataType;
 
 // Represents a symbol
 public class Symbol {
 	private String name;
-	private Type type;
+	private DataType type;
 	private String stringValue;
 	private double doubleValue;
 	private boolean booleanValue;
@@ -17,12 +17,12 @@ public class Symbol {
 	public Symbol() {
 	}
 
-	public Symbol(Type type) {
+	public Symbol(DataType type) {
 		this.name = null;
 		this.type = type;
 	}
 
-	public Symbol(String name, Type type) {
+	public Symbol(String name, DataType type) {
 		this.name = name;
 		this.type = type;
 	}
@@ -35,11 +35,11 @@ public class Symbol {
 		this.name = name;
 	}
 
-	public Type getType() {
+	public DataType getType() {
 		return type;
 	}
 
-	public void setType(Type type) {
+	public void setType(DataType type) {
 		this.type = type;
 	}
 

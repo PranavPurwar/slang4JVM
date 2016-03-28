@@ -1,16 +1,16 @@
 package com.slang.ast.statements;
 
 import com.slang.ast.Visitor;
-import com.slang.ast.meta.Type;
+import com.slang.ast.meta.DataType;
 import com.slang.contexts.Context;
 import com.slang.contexts.Symbol;
 
 // Node representing variable declaration statement
 public class VariableDeclarationStatement extends Statement {
 	private String name;
-	private Type type;
+	private DataType type;
 
-	public VariableDeclarationStatement(String name, Type type) {
+	public VariableDeclarationStatement(String name, DataType type) {
 		this.name = name;
 		this.type = type;
 	}
@@ -24,7 +24,7 @@ public class VariableDeclarationStatement extends Statement {
 		return name;
 	}
 
-	public Type getVariableType() {
+	public DataType getVariableType() {
 		return type;
 	}
 }

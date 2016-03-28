@@ -3,7 +3,7 @@ package com.slang.ast;
 import java.util.ArrayList;
 
 import com.slang.ast.expression.Expression;
-import com.slang.ast.meta.Type;
+import com.slang.ast.meta.DataType;
 import com.slang.ast.statements.Statement;
 import com.slang.contexts.Context;
 import com.slang.contexts.Symbol;
@@ -14,10 +14,10 @@ public class Closure {
 	private String name;
 	private ArrayList<Statement> statements;
 	private ArrayList<Symbol> formalParameters;
-	private Type type;
+	private DataType type;
 	private int index;
 
-	public Closure(String name, Type returnType, SymbolTable symbolTable,
+	public Closure(String name, DataType returnType, SymbolTable symbolTable,
 			ArrayList<Statement> statements, ArrayList<Symbol> fParameters,
 			int index) {
 		this.name = name;
@@ -36,7 +36,7 @@ public class Closure {
 		return name;
 	}
 
-	public Type getType() {
+	public DataType getType() {
 		return type;
 	}
 

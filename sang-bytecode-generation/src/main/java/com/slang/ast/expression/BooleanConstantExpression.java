@@ -1,7 +1,7 @@
 package com.slang.ast.expression;
 
 import com.slang.ast.Visitor;
-import com.slang.ast.meta.Type;
+import com.slang.ast.meta.DataType;
 import com.slang.contexts.Context;
 import com.slang.contexts.Symbol;
 
@@ -13,8 +13,8 @@ public class BooleanConstantExpression extends Expression {
 		this.symbol = new Symbol();
 		this.symbol.setName(null);
 		this.symbol.setBooleanValue(value);
-		this.symbol.setType(Type.BOOLEAN);
-		this.type = Type.BOOLEAN;
+		this.symbol.setType(DataType.BOOLEAN);
+		this.type = DataType.BOOLEAN;
 	}
 
 	@Override

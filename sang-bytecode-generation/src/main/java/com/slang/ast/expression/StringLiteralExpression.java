@@ -1,7 +1,7 @@
 package com.slang.ast.expression;
 
 import com.slang.ast.Visitor;
-import com.slang.ast.meta.Type;
+import com.slang.ast.meta.DataType;
 import com.slang.contexts.Context;
 import com.slang.contexts.Symbol;
 
@@ -13,8 +13,8 @@ public class StringLiteralExpression extends Expression {
 		this.symbol = new Symbol();
 		this.symbol.setName(null);
 		this.symbol.setStringValue(value);
-		this.symbol.setType(Type.STRING);
-		this.type = Type.STRING;
+		this.symbol.setType(DataType.STRING);
+		this.type = DataType.STRING;
 	}
 
 	@Override

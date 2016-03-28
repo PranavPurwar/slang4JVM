@@ -1,7 +1,7 @@
 package com.slang.ast.expression;
 
 import com.slang.ast.Visitor;
-import com.slang.ast.meta.Type;
+import com.slang.ast.meta.DataType;
 import com.slang.contexts.Context;
 import com.slang.contexts.Symbol;
 
@@ -13,8 +13,8 @@ public class NumericConstantExpression extends Expression {
 		this.symbol = new Symbol();
 		this.symbol.setName(null);
 		this.symbol.setDoubleValue(value);
-		this.symbol.setType(Type.NUMERIC);
-		this.type = Type.NUMERIC;
+		this.symbol.setType(DataType.NUMERIC);
+		this.type = DataType.NUMERIC;
 	}
 
 	@Override

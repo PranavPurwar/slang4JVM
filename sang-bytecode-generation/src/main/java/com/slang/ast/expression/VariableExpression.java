@@ -1,7 +1,7 @@
 package com.slang.ast.expression;
 
 import com.slang.ast.Visitor;
-import com.slang.ast.meta.Type;
+import com.slang.ast.meta.DataType;
 import com.slang.contexts.Context;
 import com.slang.contexts.Symbol;
 
@@ -9,7 +9,7 @@ import com.slang.contexts.Symbol;
 public class VariableExpression extends Expression {
 	private String name;
 
-	public VariableExpression(String name, Type type) {
+	public VariableExpression(String name, DataType type) {
 		this.name = name;
 		this.type = type;
 	}

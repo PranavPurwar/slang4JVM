@@ -139,7 +139,7 @@ public class Compiler implements Visitor {
 						Constants.GETSTATIC));
 
 		// Visits the expression node and generates equivalent byte code
-		com.slang.ast.meta.Type exprType = printStatement.getExpression()
+		com.slang.ast.meta.DataType exprType = printStatement.getExpression()
 				.getType();
 		printStatement.getExpression().accept(ctx, this);
 
@@ -165,7 +165,7 @@ public class Compiler implements Visitor {
 						Constants.GETSTATIC));
 
 		// Visits the expression node and generates equivalent byte code
-		com.slang.ast.meta.Type exprType = printLineStatement.getExpression()
+		com.slang.ast.meta.DataType exprType = printLineStatement.getExpression()
 				.getType();
 		printLineStatement.getExpression().accept(ctx, this);
 
@@ -184,11 +184,11 @@ public class Compiler implements Visitor {
 		ByteCodeGenerationContext context = (ByteCodeGenerationContext) ctx;
 
 		// Gets the type of the expression
-		com.slang.ast.meta.Type lExprType = bExpression.getLExpression()
+		com.slang.ast.meta.DataType lExprType = bExpression.getLExpression()
 				.getType();
 
 		// Decides operation based on the type
-		if (lExprType == com.slang.ast.meta.Type.NUMERIC) {
+		if (lExprType == com.slang.ast.meta.DataType.NUMERIC) {
 			// Visits expression nodes
 			bExpression.getLExpression().accept(context, this);
 			bExpression.getRExpression().accept(context, this);
@@ -354,13 +354,13 @@ public class Compiler implements Visitor {
 			throws Exception {
 		ByteCodeGenerationContext context = (ByteCodeGenerationContext) ctx;
 
-		com.slang.ast.meta.Type type = relationalExpression.getLExpression()
+		com.slang.ast.meta.DataType type = relationalExpression.getLExpression()
 				.getType();
 
 		relationalExpression.getLExpression().accept(context, this);
 		relationalExpression.getRExpression().accept(context, this);
 
-		if (type == com.slang.ast.meta.Type.NUMERIC) {
+		if (type == com.slang.ast.meta.DataType.NUMERIC) {
 			switch (relationalExpression.getOperator()) {
 			case LT:
 				context.getInstructionList().append(InstructionConstants.DCMPG);
@@ -443,7 +443,7 @@ public class Compiler implements Visitor {
 			default:
 				return null;
 			}
-		} else if (type == com.slang.ast.meta.Type.BOOLEAN) {
+		} else if (type == com.slang.ast.meta.DataType.BOOLEAN) {
 			switch (relationalExpression.getOperator()) {
 			case EQ:
 				context.getInstructionList().append(InstructionConstants.IXOR);
@@ -686,7 +686,7 @@ public class Compiler implements Visitor {
 	}
 
 	// Function which returns BCEL type corresponding to slang type
-	private Type getBCELType(com.slang.ast.meta.Type type) {
+	private Type getBCELType(com.slang.ast.meta.DataType type) {
 		switch (type) {
 		case NUMERIC:
 			return Type.DOUBLE;

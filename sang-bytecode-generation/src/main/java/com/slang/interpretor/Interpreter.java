@@ -17,7 +17,7 @@ import com.slang.ast.expression.RelationalExpression;
 import com.slang.ast.expression.StringLiteralExpression;
 import com.slang.ast.expression.UnaryExpression;
 import com.slang.ast.expression.VariableExpression;
-import com.slang.ast.meta.Type;
+import com.slang.ast.meta.DataType;
 import com.slang.ast.statements.AssignmentStatement;
 import com.slang.ast.statements.IfStatement;
 import com.slang.ast.statements.PrintLineStatement;
@@ -235,7 +235,7 @@ public class Interpreter implements Visitor {
 	public Symbol visit(Context context, UnaryExpression uExpression)
 			throws Exception {
 		Symbol uExprValue = new Symbol();
-		uExprValue.setType(Type.NUMERIC);
+		uExprValue.setType(DataType.NUMERIC);
 		Symbol exprValue = uExpression.getExpression().accept(context, this);
 
 		if (exprValue == null || exprValue.isValueNull()) {
@@ -269,8 +269,8 @@ public class Interpreter implements Visitor {
 		}
 
 		Symbol exprValue = new Symbol();
-		if (lExprValue.getType() == Type.NUMERIC) {
-			exprValue.setType(Type.NUMERIC);
+		if (lExprValue.getType() == DataType.NUMERIC) {
+			exprValue.setType(DataType.NUMERIC);
 			Double tempVarDouble = null;
 			switch (bExpression.getOperator()) {
 			case PLUS:
@@ -294,7 +294,7 @@ public class Interpreter implements Visitor {
 			}
 			exprValue.setDoubleValue(tempVarDouble);
 		} else {
-			exprValue.setType(Type.STRING);
+			exprValue.setType(DataType.STRING);
 			exprValue.setStringValue(lExprValue.getStringValue()
 					+ rExprValue.getStringValue());
 		}
@@ -322,7 +322,7 @@ public class Interpreter implements Visitor {
 		if (innerExprValue == null || innerExprValue.isValueNull()) {
 			return null;
 		}
-		Symbol exprValue = new Symbol(Type.BOOLEAN);
+		Symbol exprValue = new Symbol(DataType.BOOLEAN);
 		exprValue.setBooleanValue(!innerExprValue.getBooleanValue());
 		return exprValue;
 	}
@@ -340,7 +340,7 @@ public class Interpreter implements Visitor {
 			return null;
 		}
 
-		Symbol exprValue = new Symbol(Type.BOOLEAN);
+		Symbol exprValue = new Symbol(DataType.BOOLEAN);
 
 		boolean tempVarBoolean = false;
 		switch (logicalExpression.getOperator()) {
@@ -372,9 +372,9 @@ public class Interpreter implements Visitor {
 			return null;
 		}
 
-		Symbol exprValue = new Symbol(Type.BOOLEAN);
+		Symbol exprValue = new Symbol(DataType.BOOLEAN);
 		Boolean tempVarBoolean = null;
-		if (lExprValue.getType() == Type.NUMERIC) {
+		if (lExprValue.getType() == DataType.NUMERIC) {
 			switch (relationalExpression.getOperator()) {
 			case GT:
 				tempVarBoolean = lExprValue.getDoubleValue() > rExprValue
@@ -403,7 +403,7 @@ public class Interpreter implements Visitor {
 			default:
 				return null;
 			}
-		} else if (lExprValue.getType() == Type.BOOLEAN) {
+		} else if (lExprValue.getType() == DataType.BOOLEAN) {
 			switch (relationalExpression.getOperator()) {
 			case EQ:
 				tempVarBoolean = lExprValue.getBooleanValue() == rExprValue

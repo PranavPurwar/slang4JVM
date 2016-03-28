@@ -1,7 +1,7 @@
 package com.slang.ast.meta;
 
 // Types supported by Slang
-public enum Type {
+public enum DataType {
 	ILLEGAL,
 	NUMERIC,
 	BOOLEAN,
