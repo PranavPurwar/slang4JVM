@@ -1,5 +1,8 @@
 
 *.class
+<<<<<<< HEAD
 
 sang-bytecode-generation/.classpath
 sang-bytecode-generation/.classpath
+=======
+>>>>>>> origin/byte-code-gen-javassist
