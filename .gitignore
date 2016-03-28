@@ -1,3 +1,2 @@
 
-sang-bytecode-generation/target/*.MF
-sang-bytecode-generation/target/*.class
+sang-bytecode-generation/target/*
