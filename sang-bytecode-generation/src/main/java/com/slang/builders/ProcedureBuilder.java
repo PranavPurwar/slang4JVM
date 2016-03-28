@@ -3,7 +3,7 @@ package com.slang.builders;
 import java.util.ArrayList;
 
 import com.slang.ast.Procedure;
-import com.slang.ast.meta.Type;
+import com.slang.ast.meta.DataType;
 import com.slang.ast.statements.Statement;
 import com.slang.contexts.ParserContext;
 import com.slang.contexts.Symbol;
@@ -11,7 +11,7 @@ import com.slang.contexts.Symbol;
 // Builder for procedures
 public class ProcedureBuilder {
 	private String procedureName;
-	private Type returnType;
+	private DataType returnType;
 	private ParserContext parserContext;
 	private ArrayList<Statement> statements;
 	private ArrayList<Symbol> formalParameters;
@@ -34,7 +34,7 @@ public class ProcedureBuilder {
 		return parserContext;
 	}
 
-	public void setReturnType(Type returnType) {
+	public void setReturnType(DataType returnType) {
 		this.returnType = returnType;
 	}
 

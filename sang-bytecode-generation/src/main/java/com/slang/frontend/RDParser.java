@@ -16,7 +16,7 @@ import com.slang.ast.expression.StringLiteralExpression;
 import com.slang.ast.expression.UnaryExpression;
 import com.slang.ast.expression.VariableExpression;
 import com.slang.ast.meta.Operator;
-import com.slang.ast.meta.Type;
+import com.slang.ast.meta.DataType;
 import com.slang.ast.statements.AssignmentStatement;
 import com.slang.ast.statements.IfStatement;
 import com.slang.ast.statements.PrintLineStatement;
@@ -70,7 +70,7 @@ public class RDParser extends Lexer {
 		getNext();
 
 		// Checking and setting the return type
-		Type returnType = getType(currentToken);
+		DataType returnType = getType(currentToken);
 		if (returnType == null) {
 			throw syntaxError();
 		}
@@ -115,7 +115,7 @@ public class RDParser extends Lexer {
 				|| currentToken == Token.TOK_VAR_NUMBER
 				|| currentToken == Token.TOK_VAR_STRING) {
 
-			Type type = getType(currentToken);
+			DataType type = getType(currentToken);
 			getNext();
 			if (currentToken != Token.TOK_UNQUOTED_STRING) {
 				throw syntaxError();
@@ -511,13 +511,13 @@ public class RDParser extends Lexer {
 		return null;
 	}
 
-	private Type getType(Token tok) throws Exception {
+	private DataType getType(Token tok) throws Exception {
 		if (tok == Token.TOK_VAR_NUMBER) {
-			return Type.NUMERIC;
+			return DataType.NUMERIC;
 		} else if (tok == Token.TOK_VAR_STRING) {
-			return Type.STRING;
+			return DataType.STRING;
 		} else if (tok == Token.TOK_VAR_BOOL) {
-			return Type.BOOLEAN;
+			return DataType.BOOLEAN;
 		} else {
 			throw syntaxError();
 		}

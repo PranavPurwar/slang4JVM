@@ -18,7 +18,7 @@ import com.slang.ast.expression.StringLiteralExpression;
 import com.slang.ast.expression.UnaryExpression;
 import com.slang.ast.expression.VariableExpression;
 import com.slang.ast.meta.Operator;
-import com.slang.ast.meta.Type;
+import com.slang.ast.meta.DataType;
 import com.slang.ast.statements.AssignmentStatement;
 import com.slang.ast.statements.IfStatement;
 import com.slang.ast.statements.PrintLineStatement;
@@ -68,9 +68,9 @@ public class SemanticAnalyser implements Visitor {
 	@Override
 	public Symbol visit(Context context, PrintStatement printStatement)
 			throws Exception {
-		Type exprType = printStatement.getExpression().accept(null, this)
+		DataType exprType = printStatement.getExpression().accept(null, this)
 				.getType();
-		if (exprType == Type.ILLEGAL) {
+		if (exprType == DataType.ILLEGAL) {
 			throw typeError(printStatement.getIndex());
 		}
 		return null;
@@ -79,9 +79,9 @@ public class SemanticAnalyser implements Visitor {
 	@Override
 	public Symbol visit(Context context, PrintLineStatement printLineStatement)
 			throws Exception {
-		Type exprType = printLineStatement.getExpression().accept(null, this)
+		DataType exprType = printLineStatement.getExpression().accept(null, this)
 				.getType();
-		if (exprType == Type.ILLEGAL) {
+		if (exprType == DataType.ILLEGAL) {
 			throw typeError(printLineStatement.getIndex());
 		}
 		return null;
@@ -97,9 +97,9 @@ public class SemanticAnalyser implements Visitor {
 	@Override
 	public Symbol visit(Context context, AssignmentStatement assignmentStatement)
 			throws Exception {
-		Type exprType = assignmentStatement.getExpression().accept(null, this)
+		DataType exprType = assignmentStatement.getExpression().accept(null, this)
 				.getType();
-		Type variableExprType = assignmentStatement.getVariableExpression()
+		DataType variableExprType = assignmentStatement.getVariableExpression()
 				.accept(null, this).getType();
 		if (variableExprType != exprType) {
 			throw typeError(assignmentStatement.getIndex());
@@ -110,9 +110,9 @@ public class SemanticAnalyser implements Visitor {
 	@Override
 	public Symbol visit(Context context, IfStatement ifStatement)
 			throws Exception {
-		Type condExprType = ifStatement.getConditionExpression()
+		DataType condExprType = ifStatement.getConditionExpression()
 				.accept(null, this).getType();
-		if (condExprType != Type.BOOLEAN) {
+		if (condExprType != DataType.BOOLEAN) {
 			throw typeError(ifStatement.getIndex());
 		}
 		for (Statement statement : ifStatement.getTruePartStatements()) {
@@ -129,9 +129,9 @@ public class SemanticAnalyser implements Visitor {
 	@Override
 	public Symbol visit(Context context, WhileStatement whileStatement)
 			throws Exception {
-		Type condExprType = whileStatement.getConditionExpression()
+		DataType condExprType = whileStatement.getConditionExpression()
 				.accept(null, this).getType();
-		if (condExprType != Type.BOOLEAN) {
+		if (condExprType != DataType.BOOLEAN) {
 			throw typeError(whileStatement.getIndex());
 		}
 		for (Statement statement : whileStatement.getStatements()) {
@@ -143,7 +143,7 @@ public class SemanticAnalyser implements Visitor {
 	@Override
 	public Symbol visit(Context context, ReturnStatement returnStatement)
 			throws Exception {
-		Type exprType = returnStatement.getExpression().accept(null, this)
+		DataType exprType = returnStatement.getExpression().accept(null, this)
 				.getType();
 		return new Symbol(exprType);
 	}
@@ -171,30 +171,30 @@ public class SemanticAnalyser implements Visitor {
 	@Override
 	public Symbol visit(Context context, UnaryExpression unaryExpression)
 			throws Exception {
-		Type lExprType = unaryExpression.getExpression().accept(null, this)
+		DataType lExprType = unaryExpression.getExpression().accept(null, this)
 				.getType();
-		if (lExprType == Type.NUMERIC) {
-			return typeSetterHelper(Type.NUMERIC, unaryExpression);
+		if (lExprType == DataType.NUMERIC) {
+			return typeSetterHelper(DataType.NUMERIC, unaryExpression);
 		} else {
-			return typeSetterHelper(Type.ILLEGAL, unaryExpression);
+			return typeSetterHelper(DataType.ILLEGAL, unaryExpression);
 		}
 	}
 
 	@Override
 	public Symbol visit(Context context, BinaryExpression binaryExpression)
 			throws Exception {
-		Type lExprType = binaryExpression.getLExpression().accept(null, this)
+		DataType lExprType = binaryExpression.getLExpression().accept(null, this)
 				.getType();
-		Type rExprType = binaryExpression.getRExpression().accept(null, this)
+		DataType rExprType = binaryExpression.getRExpression().accept(null, this)
 				.getType();
 
 		if (lExprType != rExprType) {
-			return typeSetterHelper(Type.ILLEGAL, binaryExpression);
-		} else if (lExprType == Type.BOOLEAN) {
-			return typeSetterHelper(Type.ILLEGAL, binaryExpression);
-		} else if (lExprType == Type.STRING
+			return typeSetterHelper(DataType.ILLEGAL, binaryExpression);
+		} else if (lExprType == DataType.BOOLEAN) {
+			return typeSetterHelper(DataType.ILLEGAL, binaryExpression);
+		} else if (lExprType == DataType.STRING
 				&& binaryExpression.getOperator() != Operator.PLUS) {
-			return typeSetterHelper(Type.ILLEGAL, binaryExpression);
+			return typeSetterHelper(DataType.ILLEGAL, binaryExpression);
 		} else {
 			return typeSetterHelper(lExprType, binaryExpression);
 		}
@@ -209,47 +209,47 @@ public class SemanticAnalyser implements Visitor {
 	@Override
 	public Symbol visit(Context context, LogicalExpression logicalExpression)
 			throws Exception {
-		Type lExprType = logicalExpression.getLExpression().accept(null, this)
+		DataType lExprType = logicalExpression.getLExpression().accept(null, this)
 				.getType();
-		Type rExprType = logicalExpression.getRExpression().accept(null, this)
+		DataType rExprType = logicalExpression.getRExpression().accept(null, this)
 				.getType();
-		if (lExprType == Type.BOOLEAN && rExprType == Type.BOOLEAN) {
-			return typeSetterHelper(Type.BOOLEAN, logicalExpression);
+		if (lExprType == DataType.BOOLEAN && rExprType == DataType.BOOLEAN) {
+			return typeSetterHelper(DataType.BOOLEAN, logicalExpression);
 		}
-		return typeSetterHelper(Type.ILLEGAL, logicalExpression);
+		return typeSetterHelper(DataType.ILLEGAL, logicalExpression);
 	}
 
 	@Override
 	public Symbol visit(Context context, NegationExpression negationExpression)
 			throws Exception {
-		Type exprType = negationExpression.getExpression().accept(null, this)
+		DataType exprType = negationExpression.getExpression().accept(null, this)
 				.getType();
-		if (exprType == Type.BOOLEAN) {
-			return typeSetterHelper(Type.BOOLEAN, negationExpression);
+		if (exprType == DataType.BOOLEAN) {
+			return typeSetterHelper(DataType.BOOLEAN, negationExpression);
 		}
-		return typeSetterHelper(Type.ILLEGAL, negationExpression);
+		return typeSetterHelper(DataType.ILLEGAL, negationExpression);
 	}
 
 	@Override
 	public Symbol visit(Context context,
 			RelationalExpression relationalExpression) throws Exception {
-		Type lExprType = relationalExpression.getLExpression()
+		DataType lExprType = relationalExpression.getLExpression()
 				.accept(null, this).getType();
-		Type rExprType = relationalExpression.getRExpression()
+		DataType rExprType = relationalExpression.getRExpression()
 				.accept(null, this).getType();
 
 		if (lExprType == rExprType) {
-			if (lExprType == Type.NUMERIC) {
-				relationalExpression.setType(Type.BOOLEAN);
-				return typeSetterHelper(Type.BOOLEAN, relationalExpression);
+			if (lExprType == DataType.NUMERIC) {
+				relationalExpression.setType(DataType.BOOLEAN);
+				return typeSetterHelper(DataType.BOOLEAN, relationalExpression);
 			}
-			if ((lExprType == Type.STRING || lExprType == Type.BOOLEAN)
+			if ((lExprType == DataType.STRING || lExprType == DataType.BOOLEAN)
 					&& (relationalExpression.getOperator() == Operator.EQ || relationalExpression
 							.getOperator() == Operator.NEQ)) {
-				return typeSetterHelper(Type.BOOLEAN, relationalExpression);
+				return typeSetterHelper(DataType.BOOLEAN, relationalExpression);
 			}
 		}
-		return typeSetterHelper(Type.ILLEGAL, relationalExpression);
+		return typeSetterHelper(DataType.ILLEGAL, relationalExpression);
 	}
 
 	@Override
@@ -264,17 +264,17 @@ public class SemanticAnalyser implements Visitor {
 			procedureCallExpression.setProcedure(procedure);
 			if (parameterTypeCheck(context, procedure.getFormalParameters(),
 					procedureCallExpression.getAcutalParameterExpressions())) {
-				return typeSetterHelper(Type.ILLEGAL, procedureCallExpression);
+				return typeSetterHelper(DataType.ILLEGAL, procedureCallExpression);
 			}
 		} else {
 			if (parameterTypeCheck(context, procedure.getFormalParameters(),
 					procedureCallExpression.getAcutalParameterExpressions())) {
-				return typeSetterHelper(Type.ILLEGAL, procedureCallExpression);
+				return typeSetterHelper(DataType.ILLEGAL, procedureCallExpression);
 			}
 			procedure.accept(context, this,
 					procedureCallExpression.getAcutalParameterExpressions());
 		}
-		Type procedureReturnType = procedure.getType();
+		DataType procedureReturnType = procedure.getType();
 		return typeSetterHelper(procedureReturnType, procedureCallExpression);
 	}
 
@@ -284,7 +284,7 @@ public class SemanticAnalyser implements Visitor {
 		return new Exception(errorMessage);
 	}
 
-	private Symbol typeSetterHelper(Type type, Expression expression) {
+	private Symbol typeSetterHelper(DataType type, Expression expression) {
 		expression.setType(type);
 		return new Symbol(type);
 	}
