@@ -1,0 +1,10 @@
+call_slang/bin/
+call_slang/dist/
+call_slang/lib/
+nbproject/
+slang_jvm/bin/
+slang_jvm/dist/
+slang_jvm/lib/
+*.class
+*.jar
+
