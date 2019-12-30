@@ -1,4 +1,4 @@
-#SLANG for JAVA VIRTUAL MACHINE#
+SLANG for JAVA VIRTUAL MACHINE
 ============
 
 Vaisakh B
