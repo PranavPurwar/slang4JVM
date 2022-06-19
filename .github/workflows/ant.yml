@@ -21,5 +21,11 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+    - run: cd slang_jvm
     - name: Build with Ant
       run: ant
+    - name: Upload debug apk
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist
+        path: dist
