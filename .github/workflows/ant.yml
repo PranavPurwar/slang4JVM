@@ -24,8 +24,8 @@ jobs:
     - run: cd slang_jvm
     - name: Build with Ant
       run: ant
-    - name: Upload debug apk
+    - name: Upload distro
       uses: actions/upload-artifact@v3
       with:
         name: dist
-        path: dist
+        path: ../call_slang/dist
