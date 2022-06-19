@@ -28,4 +28,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: dist
-        path: ../call_slang/dist
+        path: /home/runner/work/slang4JVM/slang4JVM/call_slang/dist
