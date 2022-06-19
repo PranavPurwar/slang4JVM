@@ -1,19 +1,19 @@
-FUNCTION BOOLEAN MAIN()
-	NUMERIC newTerm;
-	NUMERIC prevTerm;
-	NUMERIC currentTerm;
+func boolean main()
+	int newTerm;
+	int prevTerm;
+	int currentTerm;
 	
 	currentTerm = 1;
 	prevTerm = 0;
 	newTerm = currentTerm + prevTerm;
 	
-	PRINTLINE prevTerm;
-	PRINTLINE currentTerm;
+	println prevTerm;
+	println currentTerm;
 	
-	WHILE (newTerm < 1000) 
-		PRINTLINE newTerm;
+	while (newTerm < 1000) 
+		println newTerm;
 		prevTerm = currentTerm;
 		currentTerm = newTerm;
 		newTerm = currentTerm + prevTerm;
-	WEND
-END
+	wend
+end

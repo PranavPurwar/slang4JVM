@@ -1,13 +1,13 @@
-FUNCTION BOOLEAN MAIN()
-	NUMERIC prevTerm;
-	NUMERIC currentTerm;
+func boolean main()
+	int prevTerm;
+	int currentTerm;
 	
 	prevTerm = 0;
 	currentTerm = 1;
 	
-	WHILE (currentTerm < 100)
-		PRINTLINE currentTerm; 
+	while (currentTerm < 100)
+		println currentTerm; 
 		currentTerm = currentTerm + prevTerm;
 		prevTerm = currentTerm - prevTerm;
-	WEND
-END
+	wend
+end

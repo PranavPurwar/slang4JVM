@@ -1,33 +1,33 @@
-FUNCTION NUMERIC GETDISCRIMINANT(NUMERIC A, NUMERIC B, NUMERIC C)
-	NUMERIC N;
-	N = B * B - 4 * A * C;
+func int getDiscriminant(int a, int b, int c)
+	int n;
+	n = b * b - 4 * a * c;
 	
-	IF (N < 0) 
-		THEN 
-			RETURN 0;
-		ELSE 
-			IF (N == 0) 
-				THEN
-					RETURN 1;
-				ELSE 
-					RETURN 2;
-			ENDIF
-	ENDIF
-END
+	if (n < 0) 
+		then 
+			return 0;
+		else 
+			if (n == 0) 
+				then
+					return 1;
+				else 
+					return 2;
+			endif
+	endif
+end
 
-FUNCTION BOOLEAN MAIN()
-	NUMERIC D;
-	D = GETDISCRIMINANT(1, -2, -4);
+func boolean main()
+	int d;
+	D = getDiscriminant(1, -2, -4);
 	
-	IF (D == 0) 
-		THEN 
-			PRINT "no roots";
-		ELSE
-			IF (D == 1)
-				THEN
-					PRINT "unique root present";
-				ELSE 
-					PRINT "Two roots available";
-			ENDIF
-	ENDIF
-END 
+	if (d == 0) 
+		then
+			print "no roots";
+		else
+			if (d == 1)
+				then
+					print "unique root present";
+				else 
+					print "Two roots available";
+			endif
+	endif
+end

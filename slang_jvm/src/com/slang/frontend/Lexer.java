@@ -17,22 +17,22 @@ public class Lexer {
 
 		// Filling the keywords
 		this.keywords = new ValueTable[16];
-		this.keywords[0] = new ValueTable(Token.TOK_BOOL_FALSE, "FALSE");
-		this.keywords[1] = new ValueTable(Token.TOK_BOOL_TRUE, "TRUE");
-		this.keywords[2] = new ValueTable(Token.TOK_VAR_STRING, "STRING");
-		this.keywords[3] = new ValueTable(Token.TOK_VAR_BOOL, "BOOLEAN");
-		this.keywords[4] = new ValueTable(Token.TOK_VAR_NUMBER, "NUMERIC");
-		this.keywords[5] = new ValueTable(Token.TOK_PRINT, "PRINT");
-		this.keywords[6] = new ValueTable(Token.TOK_PRINTLN, "PRINTLINE");
-		this.keywords[7] = new ValueTable(Token.TOK_IF, "IF");
-		this.keywords[8] = new ValueTable(Token.TOK_THEN, "THEN");
-		this.keywords[9] = new ValueTable(Token.TOK_ELSE, "ELSE");
-		this.keywords[10] = new ValueTable(Token.TOK_ENDIF, "ENDIF");
-		this.keywords[11] = new ValueTable(Token.TOK_WHILE, "WHILE");
-		this.keywords[12] = new ValueTable(Token.TOK_WEND, "WEND");
-		this.keywords[13] = new ValueTable(Token.TOK_FUNCTION, "FUNCTION");
-		this.keywords[14] = new ValueTable(Token.TOK_END, "END");
-		this.keywords[15] = new ValueTable(Token.TOK_RETURN, "RETURN");
+		this.keywords[0] = new ValueTable(Token.TOK_BOOL_FALSE, "false");
+		this.keywords[1] = new ValueTable(Token.TOK_BOOL_TRUE, "true");
+		this.keywords[2] = new ValueTable(Token.TOK_VAR_STRING, "String");
+		this.keywords[3] = new ValueTable(Token.TOK_VAR_BOOL, "boolean");
+		this.keywords[4] = new ValueTable(Token.TOK_VAR_NUMBER, "int");
+		this.keywords[5] = new ValueTable(Token.TOK_PRINT, "print");
+		this.keywords[6] = new ValueTable(Token.TOK_PRINTLN, "println");
+		this.keywords[7] = new ValueTable(Token.TOK_IF, "if");
+		this.keywords[8] = new ValueTable(Token.TOK_THEN, "then");
+		this.keywords[9] = new ValueTable(Token.TOK_ELSE, "else");
+		this.keywords[10] = new ValueTable(Token.TOK_ENDIF, "endif");
+		this.keywords[11] = new ValueTable(Token.TOK_WHILE, "while");
+		this.keywords[12] = new ValueTable(Token.TOK_WEND, "wend");
+		this.keywords[13] = new ValueTable(Token.TOK_FUNCTION, "func");
+		this.keywords[14] = new ValueTable(Token.TOK_END, "end");
+		this.keywords[15] = new ValueTable(Token.TOK_RETURN, "return");
 	}
 
 	protected double getNumber() {

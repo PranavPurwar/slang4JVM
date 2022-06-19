@@ -1,14 +1,14 @@
-FUNCTION BOOLEAN PRINTNUMBER(NUMERIC A)
-	PRINTLINE A;
-	RETURN TRUE;
-END
+func boolean printNumber(int A)
+	println A;
+	return true;
+end
 
-FUNCTION BOOLEAN MAIN()
-	NUMERIC D;
+func boolean main()
+	int D;
 	D = 0;
-	BOOLEAN TEMP;
-	WHILE (D <= 100) 
-		TEMP = PRINTNUMBER(D);
+	boolean temp;
+	while (D <= 100) 
+		temp = printNumber(D);
 		D = D + 1;
-	WEND
-END
+	wend
+end

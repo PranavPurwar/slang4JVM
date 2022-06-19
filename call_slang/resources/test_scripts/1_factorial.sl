@@ -1,17 +1,17 @@
-FUNCTION NUMERIC fact(NUMERIC d)
-	IF (d <= 0)
-		THEN
-			RETURN 1;
-		ELSE
-			RETURN d * fact(d - 1);
-	ENDIF
-END
+func int fact(int d)
+	if (d <= 0)
+		then
+			return 1;
+		else
+			return d * fact(d - 1);
+	endif
+end
 
-FUNCTION BOOLEAN main()
-	NUMERIC d;
+func boolean main()
+	int d;
 	d = 0;
-	WHILE (d <= 10)
-		PRINTLINE fact(d);
+	while (d <= 10)
+		println fact(d);
 		d = d + 1;
-	WEND
-END 
+	wend
+end

@@ -1,3 +1,3 @@
-FUNCTION BOOLEAN MAIN()
+func boolean main()
 	printline "Hello " + "World";
-END
+end

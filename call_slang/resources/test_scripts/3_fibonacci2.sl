@@ -1,23 +1,22 @@
-FUNCTION NUMERIC fibonacci(NUMERIC n)
-	IF (n == 0)
-		THEN
-			RETURN 0;
-		ELSE
-			IF (n == 1)
-				THEN 
-					RETURN 1;
-				ELSE 
-					RETURN fibonacci(n-1) + fibonacci(n-2);
-			ENDIF
-	ENDIF
-END
+func int fibonacci(int n)
+	if (n == 0)
+		then
+			return 0;
+		else
+			if (n == 1)
+				then
+					return 1;
+				else 
+					return fibonacci(n-1) + fibonacci(n-2);
+			endif
+	endif
+end
 
-FUNCTION BOOLEAN main()
-	NUMERIC d;
+func boolean main()
+	int d;
 	d = 0;
-	WHILE (d <= 10)
-		PRINTLINE fibonacci(d);
+	while (d <= 10)
+		println fibonacci(d);
 		d = d + 1;
-	WEND
-END
-		
+	wend
+end

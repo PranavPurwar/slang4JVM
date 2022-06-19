@@ -8,7 +8,7 @@
 	<target name="update_lib_slang">
 		<delete dir="${slang_lib.dir}" />
 		<mkdir dir="${slang_lib.dir}" />
-		<copy file="bcel-5.2.jar" todir="${slang_lib.dir}" />
+		<copy file="bcel-6.5.0.jar" todir="${slang_lib.dir}" />
 	</target>
 
 	<target name="slang" depends="update_lib_slang">
@@ -20,7 +20,7 @@
 	<target name="update_lib_call_slang">
 		<delete dir="${des.dir}" />
 		<mkdir dir="${des.dir}" />
-		<copy file="bcel-5.2.jar" todir="${src.dir}" />
+		<copy file="bcel-6.5.0.jar" todir="${src.dir}" />
 		<copy todir="${des.dir}">
 			<fileset dir="${src.dir}" includes="**/*.jar" />
 		</copy>
